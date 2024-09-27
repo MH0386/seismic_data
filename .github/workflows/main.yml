@@ -10,11 +10,16 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: Login to Kaggle
-        uses: osbm/kaggle-login@main
+      - name: Upload datasets
+        uses: jaimevalero/push-kaggle-dataset@v3.2
+        env:
+          KAGGLE_USERNAME: mh0386
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
         with:
-          kaggle_username: mh0386
-          kaggle_key: ${{ secrets.KAGGLE_KEY }}
+          id:  "mh0386/seismic-data"
+          title: "Seismic Data"
+          files:  data
+          is_public: false
       - name: Use kaggle api to list datasets
         run: |
           kaggle datasets list
