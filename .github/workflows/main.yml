@@ -10,7 +10,13 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: Upload datasets
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/README.md') }}
+          restore-keys: ${{ runner.os }}-pip-
+      - name: Upload Dataset
         uses: jaimevalero/push-kaggle-dataset@v3.2
         env:
           KAGGLE_USERNAME: mh0386
@@ -18,8 +24,5 @@ jobs:
         with:
           id:  "mh0386/seismic-data"
           title: "Seismic Data"
-          files:  data
+          files:  .
           is_public: false
-      - name: Use kaggle api to list datasets
-        run: |
-          kaggle datasets list
