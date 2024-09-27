@@ -23,11 +23,11 @@ jobs:
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
       - name: Upload Dataset
         run: |
-          rm -rd .git
-          rm -rd .github
           kaggle d metadata mh0386/seismic-data
           git add dataset-metadata.json
           git commit -m "Update dataset-metadata.json"
           git pull
           git push
+          rm -rd .git
+          rm -rd .github
           kaggle d version -r tar -m https://github.com/MH0386/seismic_data/commit/${{ github.sha }}
