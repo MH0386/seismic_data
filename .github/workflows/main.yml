@@ -1,0 +1,20 @@
+name: Kaggle
+on: 
+  workflow_dispatch:
+  push:
+      branches:
+          - main
+jobs:
+  pushToKaggle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Login to Kaggle
+        uses: osbm/kaggle-login@main
+        with:
+          kaggle_username: mh0386
+          kaggle_key: ${{ secrets.KAGGLE_KEY }}
+      - name: Use kaggle api to list datasets
+        run: |
+          kaggle datasets list
