@@ -5,7 +5,7 @@ on:
       branches:
           - main
 jobs:
-  testitout:
+  pushToKaggle:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -13,8 +13,8 @@ jobs:
       - name: Login to Kaggle
         uses: osbm/kaggle-login@main
         with:
-          KAGGLE_USERNAME: mh0386
-          KAGGLE_KEY: {{ secrets.KAGGLE_KEY }}
+          kaggle_username: mh0386
+          kaggle_key: ${{ secrets.KAGGLE_KEY }}
       - name: Use kaggle api to list datasets
         run: |
           kaggle datasets list
