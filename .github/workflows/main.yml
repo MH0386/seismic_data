@@ -11,7 +11,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
       - name: Login to Kaggle
-      - uses: osbm/kaggle-login@main
+        uses: osbm/kaggle-login@main
         with:
           KAGGLE_USERNAME: mh0386
           KAGGLE_KEY: {{ secrets.KAGGLE_KEY }}
