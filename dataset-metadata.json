@@ -1,9 +1,39 @@
 {
+  "id": "mh0386/seismic-data",
+  "id_no": 5779538,
+  "datasetSlugNullable": "seismic-data",
+  "ownerUserNullable": "mh0386",
+  "usabilityRatingNullable": 0.35294117647058826,
+  "titleNullable": "Seismic Data",
+  "subtitleNullable": "",
+  "descriptionNullable": "",
+  "datasetId": 5779538,
+  "datasetSlug": "seismic-data",
+  "hasDatasetSlug": true,
+  "ownerUser": "mh0386",
+  "hasOwnerUser": true,
+  "usabilityRating": 0.35294117647058826,
+  "hasUsabilityRating": true,
+  "totalViews": 12,
+  "totalVotes": 0,
+  "totalDownloads": 1,
   "title": "Seismic Data",
-  "id": "mh0386/seismic_data",
+  "hasTitle": true,
+  "subtitle": "",
+  "hasSubtitle": true,
+  "description": "",
+  "hasDescription": true,
+  "isPrivate": true,
+  "keywords": [
+    "geology"
+  ],
   "licenses": [
     {
-      "name": "CC0-1.0"
+      "nameNullable": "CC0-1.0",
+      "name": "CC0-1.0",
+      "hasName": true
     }
-  ]
+  ],
+  "collaborators": [],
+  "data": []
 }
