@@ -24,6 +24,8 @@ jobs:
       - name: Upload Dataset
         run: |
           kaggle d metadata mh0386/seismic-data
+          git config --global user.email "mohamed.hisham.abdelzaher@gmail.com"
+          git config --global user.name "Mohamed Hisham Abdelzaher"
           git add dataset-metadata.json
           git commit -m "Update dataset-metadata.json"
           git pull
