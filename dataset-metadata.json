@@ -3,7 +3,7 @@
   "id_no": 5779538,
   "datasetSlugNullable": "seismic-data",
   "ownerUserNullable": "mh0386",
-  "usabilityRatingNullable": 0.4117647058823529,
+  "usabilityRatingNullable": 0.4375,
   "titleNullable": "Seismic Data",
   "subtitleNullable": "",
   "descriptionNullable": "",
@@ -12,9 +12,9 @@
   "hasDatasetSlug": true,
   "ownerUser": "mh0386",
   "hasOwnerUser": true,
-  "usabilityRating": 0.4117647058823529,
+  "usabilityRating": 0.4375,
   "hasUsabilityRating": true,
-  "totalViews": 17,
+  "totalViews": 18,
   "totalVotes": 0,
   "totalDownloads": 1,
   "title": "Seismic Data",
@@ -37,7 +37,15 @@
   ],
   "collaborators": [
     {
+      "username": "mohamedabdelaziz187",
+      "role": "reader"
+    },
+    {
       "username": "diaaessam",
+      "role": "reader"
+    },
+    {
+      "username": "mrsa3dola",
       "role": "reader"
     }
   ],
