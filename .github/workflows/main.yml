@@ -16,13 +16,20 @@ jobs:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/README.md') }}
           restore-keys: ${{ runner.os }}-pip-
-      - name: Upload Dataset
-        uses: jaimevalero/push-kaggle-dataset@v3.2
-        env:
+      - name: Login
+        uses: osbm/kaggle-login@v2.3
+        with:
           KAGGLE_USERNAME: mh0386
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-        with:
-          id:  "mh0386/seismic-data"
-          title: "Seismic Data"
-          files:  data
-          is_public: false
+      - name: Upload Dataset
+        run: |
+          kaggle d metadata mh0386/seismic-data
+          git config --global user.email "mohamed.hisham.abdelzaher@gmail.com"
+          git config --global user.name "Mohamed Hisham Abdelzaher"
+          git add dataset-metadata.json
+          git commit -m "Update dataset-metadata.json"
+          git pull
+          git push
+          rm -rd .git
+          rm -rd .github
+          kaggle d version -r tar -m https://github.com/MH0386/seismic_data/commit/${{ github.sha }}
