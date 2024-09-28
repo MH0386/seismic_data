@@ -21,7 +21,8 @@ jobs:
         with:
           KAGGLE_USERNAME: mh0386
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-      - name: Upload Dataset
+      - name: Prepare
+        continue-on-error: True
         run: |
           kaggle d metadata mh0386/seismic-data
           git config --global user.email "mohamed.hisham.abdelzaher@gmail.com"
@@ -30,6 +31,8 @@ jobs:
           git commit -m "Update dataset-metadata.json"
           git pull
           git push
+      - name: Upload Dataset
+        run: |
           rm -rd .git
           rm -rd .github
           kaggle d version -r tar -m https://github.com/MH0386/seismic_data/commit/${{ github.sha }}
