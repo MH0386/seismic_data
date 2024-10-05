@@ -33,6 +33,7 @@ jobs:
           rm renovate.json
           rm dataset-metadata.json
           huggingface-cli upload MH0386/seismic_data . --repo-type dataset
+          
   # pushToKaggle:
   #   runs-on: ubuntu-latest
   #   steps:
