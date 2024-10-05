@@ -1,4 +1,4 @@
-name: Kaggle and HuggingFace
+name: Push To HuggingFace
 on: 
   workflow_dispatch:
   push:
