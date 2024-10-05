@@ -5,38 +5,6 @@ on:
       branches:
           - main
 jobs:
-  pushToKaggle:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v4
-      - name: Cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/README.md') }}
-          restore-keys: ${{ runner.os }}-pip-
-      - name: Login
-        uses: osbm/kaggle-login@v2.3
-        with:
-          KAGGLE_USERNAME: mh0386
-          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
-      - name: Prepare
-        continue-on-error: True
-        run: |
-          kaggle d metadata mh0386/seismic-data
-          git config --global user.email "mohamed.hisham.abdelzaher@gmail.com"
-          git config --global user.name "Mohamed Hisham Abdelzaher"
-          git add dataset-metadata.json
-          git commit -m "Update dataset-metadata.json"
-          git pull
-          git push
-      - name: Upload Dataset
-        run: |
-          rm -rd .git
-          rm -rd .github
-          rm renovate.json
-          kaggle d version -r tar -m https://github.com/MH0386/seismic_data/commit/${{ github.sha }}
   pushToHuggingFace:
     runs-on: ubuntu-latest
     steps:
@@ -65,3 +33,35 @@ jobs:
           rm renovate.json
           rm dataset-metadata.json
           huggingface-cli upload MH0386/seismic_data . --repo-type dataset
+  # pushToKaggle:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout the repository
+  #       uses: actions/checkout@v4
+  #     - name: Cache
+  #       uses: actions/cache@v4
+  #       with:
+  #         path: ~/.cache/pip
+  #         key: ${{ runner.os }}-pip-${{ hashFiles('**/README.md') }}
+  #         restore-keys: ${{ runner.os }}-pip-
+  #     - name: Login
+  #       uses: osbm/kaggle-login@v2.3
+  #       with:
+  #         KAGGLE_USERNAME: mh0386
+  #         KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+  #     - name: Prepare
+  #       continue-on-error: True
+  #       run: |
+  #         kaggle d metadata mh0386/seismic-data
+  #         git config --global user.email "mohamed.hisham.abdelzaher@gmail.com"
+  #         git config --global user.name "Mohamed Hisham Abdelzaher"
+  #         git add dataset-metadata.json
+  #         git commit -m "Update dataset-metadata.json"
+  #         git pull
+  #         git push
+  #     - name: Upload Dataset
+  #       run: |
+  #         rm -rd .git
+  #         rm -rd .github
+  #         rm renovate.json
+  #         kaggle d version -r tar -m https://github.com/MH0386/seismic_data/commit/${{ github.sha }}
