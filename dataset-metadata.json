@@ -3,27 +3,27 @@
   "id_no": 5779538,
   "datasetSlugNullable": "seismic-data",
   "ownerUserNullable": "mh0386",
-  "usabilityRatingNullable": 0.4375,
+  "usabilityRatingNullable": 0.5625,
   "titleNullable": "Seismic Data",
-  "subtitleNullable": "",
+  "subtitleNullable": "Seismic Data for Moon and Mars",
   "descriptionNullable": "",
   "datasetId": 5779538,
   "datasetSlug": "seismic-data",
   "hasDatasetSlug": true,
   "ownerUser": "mh0386",
   "hasOwnerUser": true,
-  "usabilityRating": 0.4375,
+  "usabilityRating": 0.5625,
   "hasUsabilityRating": true,
-  "totalViews": 34,
-  "totalVotes": 0,
-  "totalDownloads": 7,
+  "totalViews": 75,
+  "totalVotes": 1,
+  "totalDownloads": 11,
   "title": "Seismic Data",
   "hasTitle": true,
-  "subtitle": "",
+  "subtitle": "Seismic Data for Moon and Mars",
   "hasSubtitle": true,
   "description": "",
   "hasDescription": true,
-  "isPrivate": true,
+  "isPrivate": false,
   "keywords": [
     "geology",
     "signal processing"
@@ -41,11 +41,19 @@
       "role": "reader"
     },
     {
+      "username": "vkcrispy",
+      "role": "reader"
+    },
+    {
       "username": "diaaessam",
       "role": "reader"
     },
     {
       "username": "mrsa3dola",
+      "role": "reader"
+    },
+    {
+      "username": "wordwizards",
       "role": "reader"
     }
   ],
